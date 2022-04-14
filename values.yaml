@@ -1,0 +1,20 @@
+deployment:
+  replicaCount: 1
+  containers:
+    name: microservice-lambda-app
+    image:
+      repository: damsconas/microservice-lambda-app
+  metadata:
+    name: microservice-lambda-app
+    labels:
+      app: microservice-lambda-app
+
+service:
+  name: microservice-lambda-app
+  type: LoadBalancer
+  port: 80
+  targetport: 8000
+  protocol: TCP
+  metadata:
+    labels:
+      app: microservice-lambda-app
